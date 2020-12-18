@@ -1,0 +1,9 @@
+.student {
+  display: inline-block;
+  padding: 5px;
+}
+.student-container {
+  background-color: gray;
+  padding: 10px;
+  margin: 10px 5px;
+}
