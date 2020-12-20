@@ -11,6 +11,7 @@ const App = () => {
     { id: "101", name: "sachin", age: 28, className: "10th" },
     { id: "102", name: "Payal", age: 28, className: "12th" },
     { id: "103", name: "Punit", age: 35, className: "5th" },
+    { id: "104", name: "raja", age: 35, className: "10th" },
 
   ])
 
