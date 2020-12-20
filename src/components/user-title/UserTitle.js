@@ -3,7 +3,7 @@ import React from 'react';
 function UserTitle({ title: { userId, id, title, completed } }) {
     return (
         <div>
-            <div>User Title</div>
+            <div>User Title List</div>
             <div>{userId}</div>
             <div>{id}</div>
             <div>{title}</div>
