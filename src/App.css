@@ -1,8 +1,6 @@
 .App {
   text-align: center;
 }
-.my-school {
-  padding: 20px;
-  margin-top: 20px;
+.main-container {
   background-color: aqua;
 }
