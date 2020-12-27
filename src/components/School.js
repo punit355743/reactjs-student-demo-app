@@ -39,11 +39,17 @@ const School = () => {
         const stu = student.concat({ id: studenInformation.id, name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName });
         setStudent(stu);
     }
+    const removeStudent = (deleteId) => {
+        const updatedstu = student.filter((studl)=>
+        studl.id!==deleteId)
+        setStudent(updatedstu)
+    }
+
     return (
         <div className={"my-school"}>
             <h1>My School name is : {schoolName} </h1>
             <UserTitle title={title} />
-            <StudentList studentList={student} />
+            <StudentList studentList={student} removeStudent={removeStudent}/>
             <StudentForm addStudent={addStudent} />
 
         </div>
