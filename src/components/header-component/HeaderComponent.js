@@ -19,6 +19,9 @@ function HeaderComponent(props) {
                             <Link to="/about"><a class="nav-link" href="#">About</a></Link>
                         </li>
                         <li class="nav-item">
+                            <Link to="/about"><a class="nav-link" href="#">Help</a></Link>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link disabled" href="#">Disabled</a>
                         </li>
                     </ul>
