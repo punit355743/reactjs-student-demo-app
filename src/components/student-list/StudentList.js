@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Student from './student/Student'
+import { schoolContext } from './../../store/Provider'
 
-export function StudentList({ studentList,removeStudent }) {
-    console.log(removeStudent);
+export function StudentList() {
+    const { student, removeStudent } = useContext(schoolContext)
     return (
         <div>
-            {!studentList.length
+            {!student.length
                 ? <div>No data found.</div>
-                : studentList.map((student) =><div> <Student key={student.id} id={student.id} name={student.name} age={student.age} studentClass={student.className} removeStudent={removeStudent}/></div>)
-            } 
+                : student.map((student) => <div> <Student key={student.id} id={student.id} name={student.name} age={student.age} studentClass={student.className} removeStudent={removeStudent} /></div>)
+            }
         </div>
     );
 }
