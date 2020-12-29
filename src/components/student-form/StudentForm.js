@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import "./StudentForm.css"
+import useForm from './../../validator/useForm';
 
 function StudentForm(props) {
-
-    const [name, setName] = useState("Amit");
-    const [studentClassName, setStudentClassName] = useState("Third");
-    const [age, setAge] = useState(15);
+    const { values, onChangeHandler } = useForm({
+        name: "payal",
+        studentClassName: "",
+        age: "30"
+    })
     const addStudent = (event) => {
         event.preventDefault();
-        props.addStudent({ id: 106, name: name, studentClassName: studentClassName, age: age })
+        props.addStudent({ id: 106, name: values.name, studentClassName: values.studentClassName, age: values.age })
 
     }
 
@@ -17,14 +19,14 @@ function StudentForm(props) {
             <h1>
                 Student Form
        </h1>
-            <div>Name:<input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="name" className={"form-item"} /></div>
-            <div>Class: <select className="form-control" value={studentClassName} onChange={(e) => setStudentClassName(e.target.value)} className={"form-item"}>
+            <div>Name:<input type="text" name="name" value={values.name} onChange={(e) => onChangeHandler(e)} placeholder="name" className={"form-item"} /></div>
+            <div>Class: <select className="form-control" name="studentClassName" value={values.studentClassName} onChange={(e) => onChangeHandler(e)} className={"form-item"}>
                 <option value="select">Select</option>
                 <option value="First">First</option>
                 <option value="Second">Second</option>
                 <option value="Third">Third</option>
             </select></div>
-            <div>Age:<input type="text" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} className={"form-item"} /></div>
+            <div>Age:<input type="text" placeholder="Age" name="age" value={values.age} onChange={(e) => onChangeHandler(e)} className={"form-item"} /></div>
             <button onClick={addStudent} className={"submit-btn"}>Submit</button>
         </form>
 

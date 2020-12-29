@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 const schoolContext = React.createContext({});
 
+
 function Provider(props) {
     const [schoolName, setSchoolName] = useState("Podar");
     const [student, setStudent] = useState([
