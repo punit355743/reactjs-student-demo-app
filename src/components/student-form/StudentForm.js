@@ -7,10 +7,12 @@ function StudentForm(props) {
         name: "payal",
         studentClassName: "",
         age: "30"
-    })
+    });
+
+  
     const addStudent = (event) => {
         event.preventDefault();
-        props.addStudent({ id: 106, name: values.name, studentClassName: values.studentClassName, age: values.age })
+        props.addStudent({ name: values.name, studentClassName: values.studentClassName, age: values.age })
 
     }
 

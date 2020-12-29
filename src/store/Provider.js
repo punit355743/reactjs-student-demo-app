@@ -14,13 +14,20 @@ function Provider(props) {
         { id: "104", name: "raja", age: 35, className: "10th" },
 
     ])
+
     const addStudent = (studenInformation) => {
-        const stu = student.concat({ id: studenInformation.id, name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName });
+
+        const autoId = () => {
+            const id = parseInt(student[student.length-1].id);
+            return `${id + 1}`
+        }
+
+        const stu = student.concat({ id: autoId(), name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName });
         setStudent(stu);
     }
     const removeStudent = (deleteId) => {
         const updatedstu = student.filter((studl) =>
-            studl.id !== deleteId)
+        studl.id !== deleteId)
         setStudent(updatedstu)
     }
 

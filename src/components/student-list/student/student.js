@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import "./student.css"
+import { schoolContext } from '../../../store/Provider';
 
-function Student({ id, name, age, studentClass, removeStudent}) {
+function Student({id, name, studentClass, age}) {
+
+    const {removeStudent } = useContext(schoolContext);
+  
 
     return (
         <div className={"student-container"}>

@@ -9,7 +9,7 @@ const axios = require('axios');
 
 
 const School = () => {
-    const { schoolName, addStudent } = useContext(schoolContext);
+    const { schoolName, addStudent, removeStudent } = useContext(schoolContext);
 
 
     // const [title, setTitle] = useState({
@@ -41,7 +41,7 @@ const School = () => {
 
             <h1>My School name is : {schoolName} </h1>
             {/* <UserTitle title={title} /> */}
-            <StudentList />
+            <StudentList removeStudent={removeStudent}/>
             <StudentForm addStudent={addStudent} />
 
         </div>
