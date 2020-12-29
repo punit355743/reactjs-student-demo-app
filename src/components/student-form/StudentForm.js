@@ -9,7 +9,7 @@ function StudentForm(props) {
         age: "30"
     });
 
-  
+
     const addStudent = (event) => {
         event.preventDefault();
         props.addStudent({ name: values.name, studentClassName: values.studentClassName, age: values.age })

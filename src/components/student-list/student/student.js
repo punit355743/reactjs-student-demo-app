@@ -6,7 +6,6 @@ function Student({id, name, studentClass, age}) {
 
     const {removeStudent } = useContext(schoolContext);
   
-
     return (
         <div className={"student-container"}>
             <span className={"student"}>{id}</span>
@@ -19,5 +18,4 @@ function Student({id, name, studentClass, age}) {
         </div>
     );
 }
-
 export default Student;

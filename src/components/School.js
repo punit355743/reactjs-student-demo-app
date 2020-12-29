@@ -7,7 +7,6 @@ import WelcomeMessage from './welcome-message/WelcomeMessage';
 import { schoolContext } from './../store/Provider';
 const axios = require('axios');
 
-
 const School = () => {
     const { schoolName, addStudent, removeStudent } = useContext(schoolContext);
 

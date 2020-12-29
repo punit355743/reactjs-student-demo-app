@@ -21,7 +21,6 @@ function Provider(props) {
             const id = parseInt(student[student.length-1].id);
             return `${id + 1}`
         }
-
         const stu = student.concat({ id: autoId(), name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName });
         setStudent(stu);
     }
