@@ -8,7 +8,7 @@ export function StudentList() {
         <div>
             {!student.length
                 ? <div>No data found.</div>
-                : student.map((student) => <div> <Student key={student.id} id={student.id} name={student.name} age={student.age} studentClass={student.className} removeStudent={removeStudent} /></div>)
+                : student.map((student) => <Student key={student.id} id={student.id} name={student.name} age={student.age} studentClass={student.className} removeStudent={removeStudent} />)
             }
         </div>
     );
