@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import "./student.css"
+import React, { useState, useEffect, useContext } from 'react';
+import "./student.css";
+import { schoolContext } from './../../../store/Provider';
 
-function Student({ id, name, age, studentClass, removeStudent}) {
+function Student({ id, name, age, studentClass, gender }) {
+
+    const { removeStudent } = useContext(schoolContext);
 
     return (
         <div className={"student-container"}>
@@ -9,8 +12,9 @@ function Student({ id, name, age, studentClass, removeStudent}) {
             <span className={"student"}>{name}</span>
             <span className={"student"}>{age}</span>
             <span className={"student"}>{studentClass}</span>
+            <span className={"student"}>{gender}</span>
             <span className={"student"}><button>edit</button></span>
-            <span className={"student"}><button onClick={()=>removeStudent(id)}>delete</button></span>
+            <span className={"student"}><button onClick={() => removeStudent(id)}>delete</button></span>
 
         </div>
     );
