@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import "./StudentForm.css"
 import useForm from './../../validator/useForm';
+import { schoolContext } from './../../store/Provider';
 
 function StudentForm(props) {
+
+    const { addStudent } = useContext(schoolContext);
     const { values, onChangeHandler } = useForm({
         name: "payal",
         studentClassName: "",
         age: "30",
-        gender:""
+        gender: ""
     })
-    const addStudent = (event) => {
+    const addStudentInSchool = (event) => {
         event.preventDefault();
-        props.addStudent({ id: 106, name: values.name, studentClassName: values.studentClassName, age: values.age ,gender:values.gender})
+        addStudent({ name: values.name, studentClassName: values.studentClassName, age: values.age, gender: values.gender })
 
     }
 
@@ -31,20 +34,20 @@ function StudentForm(props) {
             <div className="radio-buttons">
                 Male
                 <input
-                value="Male"
-                name="gender"
-                type="radio"
-                onChange={(e) => onChangeHandler(e)} className={"form-item"}
+                    value="Male"
+                    name="gender"
+                    type="radio"
+                    onChange={(e) => onChangeHandler(e)} className={"form-item"}
                 />
                 Female
                 <input
-                value="Female"
-                name="gender"
-                type="radio"
-                onChange={(e) => onChangeHandler(e)} className={"form-item"}
+                    value="Female"
+                    name="gender"
+                    type="radio"
+                    onChange={(e) => onChangeHandler(e)} className={"form-item"}
                 />
             </div>
-            <button onClick={addStudent} className={"submit-btn"}>Submit</button>
+            <button onClick={addStudentInSchool} className={"submit-btn"}>Submit</button>
         </form>
 
     );
