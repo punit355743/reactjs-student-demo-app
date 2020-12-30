@@ -8,14 +8,14 @@ const schoolContext = React.createContext({});
 function Provider(props) {
     const [schoolName, setSchoolName] = useState("Podar");
     const [student, setStudent] = useState([
-        { id: "101", name: "sachin", age: 28, className: "10th" },
-        { id: "102", name: "Payal", age: 28, className: "12th" },
-        { id: "103", name: "Punit", age: 35, className: "5th" },
-        { id: "104", name: "raja", age: 35, className: "10th" },
+        { id: "101", name: "sachin", age: 28, className: "10th", gender:"Male"},
+        { id: "102", name: "Payal", age: 28, className: "12th", gender:"Female"},
+        { id: "103", name: "Punit", age: 35, className: "5th", gender:"Male" },
+        { id: "104", name: "raja", age: 35, className: "10th", gender:"Male" },
 
     ])
     const addStudent = (studenInformation) => {
-        const stu = student.concat({ id: studenInformation.id, name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName });
+        const stu = student.concat({ id: studenInformation.id, name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName ,gender:studenInformation.gender});
         setStudent(stu);
     }
     const removeStudent = (deleteId) => {

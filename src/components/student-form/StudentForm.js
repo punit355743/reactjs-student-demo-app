@@ -6,11 +6,12 @@ function StudentForm(props) {
     const { values, onChangeHandler } = useForm({
         name: "payal",
         studentClassName: "",
-        age: "30"
+        age: "30",
+        gender:""
     })
     const addStudent = (event) => {
         event.preventDefault();
-        props.addStudent({ id: 106, name: values.name, studentClassName: values.studentClassName, age: values.age })
+        props.addStudent({ id: 106, name: values.name, studentClassName: values.studentClassName, age: values.age ,gender:values.gender})
 
     }
 
@@ -27,6 +28,22 @@ function StudentForm(props) {
                 <option value="Third">Third</option>
             </select></div>
             <div>Age:<input type="text" placeholder="Age" name="age" value={values.age} onChange={(e) => onChangeHandler(e)} className={"form-item"} /></div>
+            <div className="radio-buttons">
+                Male
+                <input
+                value="Male"
+                name="gender"
+                type="radio"
+                onChange={(e) => onChangeHandler(e)} className={"form-item"}
+                />
+                Female
+                <input
+                value="Female"
+                name="gender"
+                type="radio"
+                onChange={(e) => onChangeHandler(e)} className={"form-item"}
+                />
+            </div>
             <button onClick={addStudent} className={"submit-btn"}>Submit</button>
         </form>
 
