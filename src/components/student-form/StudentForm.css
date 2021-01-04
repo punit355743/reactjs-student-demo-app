@@ -21,6 +21,10 @@
   font-weight: 600;
 }
 
+.form-input-element-error {
+  border: 2px solid red;
+}
+
 .student-form-header {
   text-align: center;
   padding: 20px 0;

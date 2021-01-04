@@ -41,7 +41,7 @@ function StudentForm(props) {
                     value={values.name}
                     onChange={onChangeHandler}
                     placeholder="name"
-                    className={"form-item"}
+                    className={`form-item ${errors.name ? 'form-input-element-error' : ''}`}
                 />
                 {errors.name && <p className="form-input-error"> {errors.name}</p>}
             </div>
@@ -52,7 +52,7 @@ function StudentForm(props) {
                     name="studentClassName"
                     value={values.studentClassName}
                     onChange={onChangeHandler}
-                    className={"form-item"}
+                    className={`form-item ${errors.studentClassName ? 'form-input-element-error' : ''}`}
                 >
                     <option value="select">Select</option>
                     <option value="First">First</option>
@@ -71,11 +71,11 @@ function StudentForm(props) {
                     name="age"
                     value={values.age}
                     onChange={onChangeHandler}
-                    className={"form-item"}
+                    className={`form-item ${errors.age ? 'form-input-element-error' : ''}`}
                 />
                 {errors.age && <p className="form-input-error"> {errors.age}</p>}
             </div>
-            <div className="radio-buttons">
+            <div className="radio-buttons" className={`${errors.gender ? 'form-input-element-error' : ''}`}>
                 <Form.Check
                     value="male"
                     name="gender"
