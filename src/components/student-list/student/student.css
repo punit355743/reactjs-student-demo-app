@@ -3,7 +3,12 @@
   padding: 5px;
 }
 .student-container {
-  background-color: gray;
+  background-color: floralwhite;
   padding: 10px;
   margin: 10px 5px;
+}
+.btn-container {
+  display: inline-block;
+  /* float: right; */
+  padding-left: 60px;
 }
