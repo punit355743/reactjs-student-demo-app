@@ -35,11 +35,11 @@ const School = () => {
     return (
         <div className={"my-school"}>
             <WelcomeMessage>
-                <h1>Good Morning Punit!</h1>
+                <h2>Good Morning Punit!</h2>
             </WelcomeMessage>
 
 
-            <h1>My School name is : {schoolName} </h1>
+            <h3>My School name is : {schoolName} </h3>
             {/* <UserTitle title={title} /> */}
             <StudentList />
             <StudentForm />
