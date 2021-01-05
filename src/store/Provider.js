@@ -29,7 +29,7 @@ function Provider(props) {
 
 
     const addStudent = (studenInformation) => {
-        const stu = student.concat({ id: getIncrementId(), name: studenInformation.name, age: studenInformation.age, className: studenInformation.studentClassName, gender: studenInformation.gender });
+        const stu = student.concat({ id: getIncrementId(), name: studenInformation.name, age: parseInt(studenInformation.age), className: studenInformation.studentClassName, gender: studenInformation.gender });
         setStudent(stu);
     }
     const removeStudent = (deleteId) => {
