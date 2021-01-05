@@ -21,6 +21,7 @@ function useForm(formInitialState, validator, callBack) {
     useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitForm) {
             callBack();
+            setValues(formInitialState);
         }
 
     }, [errors])

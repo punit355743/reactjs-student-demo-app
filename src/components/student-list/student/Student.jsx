@@ -4,12 +4,14 @@ import { schoolContext } from "../../../store/Provider";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
+import PropTypes from "prop-types";
+
 function Student({ id, name, age, studentClass, gender }) {
   let history = useHistory();
   const { removeStudent } = useContext(schoolContext);
 
   const editHandler = editID => {
-    history.push("/edit");
+    history.push(`/edit/${editID}`);
   };
 
   return (
@@ -36,3 +38,11 @@ function Student({ id, name, age, studentClass, gender }) {
 }
 
 export default Student;
+
+Student.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  studentClass: PropTypes.string,
+  gender: PropTypes.string
+};
