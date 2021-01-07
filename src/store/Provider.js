@@ -37,10 +37,15 @@ function Provider(props) {
             studl.id !== deleteId)
         setStudent(updatedstu)
     }
+    const editStudent = (studenInformation) => {
+        // const updatedstu = student.filter((studl) =>
+        //     studl.id !== deleteId)
+        setStudent(studenInformation)
+    }
 
 
     return (
-        <schoolContext.Provider value={{ schoolName, student, addStudent, removeStudent }}>
+        <schoolContext.Provider value={{ schoolName, student, addStudent, removeStudent,editStudent }}>
             {props.children}
         </schoolContext.Provider>
     );

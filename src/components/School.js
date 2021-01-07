@@ -5,12 +5,17 @@ import StudentForm from "./student-form/StudentForm";
 import UserTitle from "./user-title/UserTitle";
 import WelcomeMessage from './welcome-message/WelcomeMessage';
 import { schoolContext } from './../store/Provider';
+import {useHistory} from "react-router-dom";
 const axios = require('axios');
 
 
 const School = () => {
     const { schoolName } = useContext(schoolContext);
-
+    const history = useHistory();
+    //When application refresh it should start from home page
+    useEffect(() => {
+        history.push("/")
+    },[])
 
     // const [title, setTitle] = useState({
     //     "userId": 1,
