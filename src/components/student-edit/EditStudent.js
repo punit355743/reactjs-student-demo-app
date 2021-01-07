@@ -1,47 +1,50 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./../student-form/StudentForm.css";
 import useForm from "./../../validator/useForm";
 import { schoolContext } from "./../../store/Provider";
 import validatorForErrorsInfo from "./../../validator/validatorForErrorsInfo";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useHistory } from "react-router-dom"
+
+
 
 function EditStudent(props) {
     const { editStudent } = useContext(schoolContext);
-    const { student} = useContext(schoolContext);
+    const { student } = useContext(schoolContext);
     const { id } = props.match.params;
-    console.log(student);
-    console.log(id);
-    let editStudentData = [];
-    useEffect(() => {
-        console.log("start");
-        editStudentData = student.filter((studl) =>{
-            if (studl.id === id) { // IDs should be Equal
-                return studl;
-            }
-        })
-    })
+    const [studentEditInfo, setStudentEditInfo] = useState({});
+    const [isUpdated, setIsUpdate] = useState(false);
 
-    console.log(editStudentData);
+    const history = useHistory();
+
+    useEffect(() => {
+        const editStudentData = student.find((studl) => studl.id === id)
+        setStudentEditInfo(editStudentData);
+        setIsUpdate(true);
+    }, [])
 
     const editStudentInSchool = () => {
         editStudent({
+            id: id,
             name: values.name,
             studentClassName: values.studentClassName,
             age: values.age,
             gender: values.gender
         });
+        history.push("/");
     };
 
     const { values, onChangeHandler, errors, onSubmitHandler } = useForm(
         {
-            name: editStudentData[0]?editStudentData[0].name:'',
-            studentClassName: editStudentData[0]?editStudentData[0].className:'',
-            age: editStudentData[0]?editStudentData[0].age:'',
-            gender: editStudentData[0]?editStudentData[0].gender:''
+            name: (studentEditInfo && studentEditInfo.name) || "",
+            studentClassName: (studentEditInfo && studentEditInfo.className) || "",
+            age: (studentEditInfo && studentEditInfo.age) || "",
+            gender: (studentEditInfo && studentEditInfo.gender) || "",
         },
         validatorForErrorsInfo,
-        editStudentInSchool
+        editStudentInSchool,
+        isUpdated
     );
 
     return (
@@ -108,8 +111,9 @@ function EditStudent(props) {
                     value="male"
                     name="gender"
                     type="radio"
-                    checked = {editStudentData[0] && (editStudentData[0].gender === 'Male')}
+                    checked={values.gender === 'male'}
                     label="Male"
+                    id="Male"
                     onChange={onChangeHandler}
                     className="form-item radio-input"
                     inline
@@ -118,8 +122,9 @@ function EditStudent(props) {
                     value="female"
                     name="gender"
                     type="radio"
-                    checked = {editStudentData[0] && (editStudentData[0].gender === 'Female')}
+                    checked={values.gender === 'female'}
                     label="Female"
+                    id="Female"
                     onChange={onChangeHandler}
                     className="form-item radio-input"
                     inline
