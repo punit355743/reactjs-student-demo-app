@@ -8,7 +8,7 @@ function Provider(props) {
         { id: "101", name: "sachin", age: 28, className: "10th", gender: "male" },
         { id: "102", name: "Payal", age: 28, className: "12th", gender: "female" },
         { id: "103", name: "Punit", age: 35, className: "5th", gender: "male" },
-        { id: "104", name: "raja", age: 35, className: "10th", gender: "Male" }
+        { id: "104", name: "raja", age: 35, className: "10th", gender: "male" }
     ]);
 
     const getIncrementId = () => {
