@@ -1,17 +1,30 @@
-import React, { useContext } from 'react';
-import { schoolContext } from './../../store/Provider';
+import React, { Component } from 'react';
 
-function About(props) {
-    const { schoolName } = useContext(schoolContext);
-    return (
-        <div>
-            <h1>About Component </h1>
-            <p>
-                {schoolName} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when ...
+class About extends Component {
 
-            </p>
-        </div>
-    );
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "punit"
+        }
+        this.clickHandler = this.clickHandler.bind(this);
+    }
+
+    clickHandler() {
+        console.log("xxxxx", this.state.name);
+    }
+
+
+    render() {
+        return (
+            <div>
+                <h1>This is About component!!!!!</h1>
+                <h2>{this.state.name}</h2>
+                <input type="text" defaultValue="punit" />
+                <button onClick={this.clickHandler}>Click</button>
+            </div>
+        );
+    }
 }
 
 export default About;
