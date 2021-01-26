@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import "./StudentForm.css";
 import useForm from "./../../validator/useForm";
 import { schoolContext } from "./../../store/Provider";
@@ -12,6 +12,11 @@ function StudentForm(props) {
     const [isClassDirty, setIsClassDirty] = useState(false);
     const [isAgeDirty, setIsAgeDirty] = useState(false);
     const [isGenderDirty, setIsGenderDirty] = useState(false);
+    const studentNameRef = useRef();
+
+
+
+
     const addStudentInSchool = () => {
         addStudent({
             name: values.name,
@@ -31,7 +36,9 @@ function StudentForm(props) {
         validatorForErrorsInfo,
         addStudentInSchool
     );
-
+    useEffect(() => {
+        studentNameRef.current.focus();
+    }, [])
     return (
         <form className={"form-container"}>
             <div className="student-form-header">
@@ -47,6 +54,7 @@ function StudentForm(props) {
                     placeholder="name"
                     className={`form-item ${(errors.name && isNameDirty) ? 'form-input-element-error' : ''}`}
                     onBlur={(event) => { onBlurHandler(event); setIsNameDirty(true) }}
+                    ref={studentNameRef}
                 />
                 {(errors.name && isNameDirty) && <p className="form-input-error"> {errors.name}</p>}
             </div>
